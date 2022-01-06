@@ -5,3 +5,55 @@ export const getApi = async () => {
 
   return res;
 };
+
+const STATENAMES = {
+  AN: "Andaman & Nicobar",
+  AP: "Andhra Pradesh",
+  AR: "Arunachal Pradesh",
+  AS: "Assam",
+  BR: "Bihar",
+  CH: "Chandigarh",
+  CT: "Chhattisgarh",
+  DL: "Delhi",
+  DN: "Daman & Diu",
+  GA: "Goa",
+  GJ: "Gujrat",
+  HP: "Himachal Pradesh",
+  HR: "Haryana",
+  JH: "Jharkhand",
+  JK: "Jammu and Kashmir",
+  KA: "Karnataka",
+  KL: "Kerala",
+  LA: "Ladakh",
+  LD: "Lakshadweep",
+  MH: "Maharastra",
+  ML: "Meghalaya",
+  MN: "Manipur",
+  MP: "Madhya Pradesh",
+  MZ: "Mizoram",
+  NL: "Nagaland",
+  OR: "Orrisa",
+  PB: "Punjab",
+  PY: "Puducherry",
+  RJ: "Rajasthan",
+  SK: "Skkim",
+  TG: "Telangana",
+  TN: "Tamil Nadu",
+  TR: "Tripura",
+  TT: "Total",
+  UP: "Uttar Pradesh",
+  UT: "Uttarakhand",
+  WB: "West Bengal",
+};
+
+export const TransformToArrayFromObject = (obj) => {
+  return obj
+    ? Object.keys(obj).map((stateCode, idx) => {
+        return {
+          ...obj[stateCode],
+          stateName: STATENAMES[stateCode],
+          id: idx,
+        };
+      })
+    : [];
+};

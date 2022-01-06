@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+table {
+  width: 90%;
+  margin: auto;
+  border-collapse: separate;
+  /* background-color: blanchedalmond; */
+}
+table tr {
+  transition: all 0.4s ease-in;
+}
+
+table > tr > td,
+table > tr > th {
+  padding: 10px;
+  text-align: left;
+  /* background-color: brown; */
+}
+table > tr:nth-of-type(odd) {
+  background-color: rgb(240, 239, 239);
+}
+
+table tr:hover {
+  background-color: rgb(61, 60, 60);
+  color: aliceblue;
+  transform: scale(1.04);
+}
+
+table .headingRow:hover {
+  background-color: rgb(58, 54, 54);
+  color: white;
+}
