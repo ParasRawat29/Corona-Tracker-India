@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header h1 {
+  text-align: center;
+  font-size: 2rem;
+  width: 400px;
+  position: relative;
+  margin: auto;
+  padding: 10px;
+}
+
+header h1::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  width: 100px;
+  height: 100px;
+  background-image: url("./images/coronavirus.png");
+  background-repeat: no-repeat;
+  opacity: 0.2;
+}

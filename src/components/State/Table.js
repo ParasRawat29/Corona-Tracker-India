@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { getApi, TransformToArrayFromObject } from "../helper";
-import "./stateWise.css";
-function StateWise() {
-  const [stateData, setStateData] = useState([]);
-  useEffect(() => {
-    getApi().then((response) => {
-      const data = TransformToArrayFromObject(response);
-      setStateData(data);
-    });
-  }, []);
+import React from "react";
+
+function Table({ stateData }) {
   return (
-    <div className="stateWrapper">
-      <table>
+    <table>
+      <thead>
         <tr className="headingRow">
-          <th className="stateNameHeading">State</th>
+          <th className="stateNameHeading">State | Union Territory</th>
           <th className="confirmedHeading" style={{ color: "#c44938" }}>
             Confirmed
           </th>
@@ -33,6 +25,8 @@ function StateWise() {
             Vaccinated 2
           </th>
         </tr>
+      </thead>
+      <tbody>
         {stateData.map((state) => {
           return (
             <tr key={state.id}>
@@ -45,9 +39,9 @@ function StateWise() {
             </tr>
           );
         })}
-      </table>
-    </div>
+      </tbody>
+    </table>
   );
 }
 
-export default StateWise;
+export default Table;

@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+table {
+  width: 90%;
+  margin: auto;
+  border-collapse: separate;
+  /* background-color: blanchedalmond; */
+}
+table > tbody > tr {
+  transition: all 0.4s ease-in;
+}
+
+table thead tr {
+  border: 1px;
+}
+
+table > thead > tr > th,
+table > tbody > tr > td {
+  padding: 10px;
+  text-align: left;
+  /* background-color: brown; */
+}
+table > tbody > tr:nth-of-type(odd) {
+  background-color: rgb(240, 239, 239);
+}
+
+table > tbody > tr:hover {
+  background-color: rgb(61, 60, 60);
+  color: aliceblue;
+  transform: scale(1.04);
+}
+
+.filterWrapper {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin: 2rem auto;
+}
+.inputGroup {
+  width: 300px;
+}
+input {
+  font-size: 1.1rem;
+  outline: none;
+  max-width: 300px;
+  outline: none;
+  border: none;
+  width: 90%;
+  padding: 6px 10px;
+  transition: width 0.3s ease-in-out;
+  border-bottom: 1px solid black;
+  overflow: hidden;
+}
+button {
+  font-size: 1.3rem;
+  padding: 3px;
+  background: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
