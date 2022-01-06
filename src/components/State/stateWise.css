@@ -18,6 +18,11 @@ table thead tr {
   border: 1px;
 }
 
+table > thead > tr > th > button {
+  float: right;
+  clear: right;
+}
+
 table > thead > tr > th,
 table > tbody > tr > td {
   padding: 10px;
