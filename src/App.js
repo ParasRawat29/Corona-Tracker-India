@@ -11,6 +11,18 @@ function App() {
       <main>
         <Total />
         <StateWise />
+        <div className="footer">
+          <h5>
+            Created By <span>Paras Rawat</span>
+            <a
+              href="https://github.com/ParasRawat29/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </h5>
+        </div>
       </main>
     </div>
   );

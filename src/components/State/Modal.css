@@ -1,0 +1,53 @@
+.overlay {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+}
+
+.content {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 101;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 80%;
+  justify-content: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  height: 80%;
+  padding: 10px;
+  overflow: scroll;
+}
+.closeBtn {
+  position: absolute;
+  padding: 0;
+  top: 1rem;
+  right: 1.5rem;
+  outline: none;
+  border: none;
+  background: inherit;
+  color: rgb(0, 0, 0);
+  font-size: 2.5rem;
+  border-radius: 50%;
+}
+
+.content::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

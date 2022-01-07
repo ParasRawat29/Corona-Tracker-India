@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-function Table({ stateData }) {
+function Table({ stateData, setSelectedState, dataName, setModalOpen }) {
   console.log(stateData);
   const [currentSort, setCurrentSort] = useState("default");
   const [sortOn, setSortOn] = useState("");
+
   const sortTypes = {
     up: {
       class: "sort-up",
@@ -31,11 +32,18 @@ function Table({ stateData }) {
     else if (currentSort === "up") setCurrentSort("default");
     else if (currentSort === "default") setCurrentSort("down");
   }
+
+  const handleRowClick = (state) => {
+    setSelectedState(state);
+    setModalOpen(true);
+  };
   return (
     <table>
       <thead>
         <tr className="headingRow">
-          <th className="stateNameHeading">State | Union Territory</th>
+          <th className="stateNameHeading">
+            {dataName === "stateName" ? "State | Union Territory" : "Districts"}
+          </th>
           <th className="confirmedHeading" style={{ color: "#c44938" }}>
             Confirmed
             <button
@@ -124,16 +132,30 @@ function Table({ stateData }) {
         </tr>
       </thead>
       <tbody>
-        {[...stateData].sort(sortTypes[currentSort].fun).map((state) => {
-          if (state.stateName !== "Total") {
+        {[...stateData].sort(sortTypes[currentSort].fun).map((item) => {
+          if (item.stateName !== "Total") {
             return (
-              <tr key={state.id}>
-                <td className="stateName">{state.stateName}</td>
-                <td className="stateWiseConfirmed">{state.total.confirmed}</td>
-                <td className="stateWiseRecovered">{state.total.recovered}</td>
-                <td className="stateWiseDeceased">{state.total.deceased}</td>
-                <td className="statevaccinated1">{state.total.vaccinated1}</td>
-                <td className="statevaccinated2">{state.total.vaccinated2}</td>
+              <tr key={item.id} onClick={() => handleRowClick(item)}>
+                <td className="stateName">{item[dataName]}</td>
+                <td className="stateWiseConfirmed">
+                  {item.total.confirmed ? item.total.confirmed : "-"}
+                </td>
+                <td className="stateWiseRecovered">
+                  {" "}
+                  {item.total.recovered ? item.total.recovered : "-"}
+                </td>
+                <td className="stateWiseDeceased">
+                  {" "}
+                  {item.total.deceased ? item.total.deceased : "-"}
+                </td>
+                <td className="statevaccinated1">
+                  {" "}
+                  {item.total.vaccinated1 ? item.total.vaccinated1 : "-"}
+                </td>
+                <td className="statevaccinated2">
+                  {" "}
+                  {item.total.vaccinated2 ? item.total.vaccinated2 : "-"}
+                </td>
               </tr>
             );
           }

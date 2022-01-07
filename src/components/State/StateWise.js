@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { getApi, TransformToArrayFromObject } from "../../helper";
+import React, { useState } from "react";
+import Modal from "./Modal";
 import SearchBar from "./SearchBar";
 import "./stateWise.css";
 import Table from "./Table";
@@ -7,6 +7,8 @@ function StateWise() {
   const [apiData, setApiData] = useState([]);
   const [stateData, setStateData] = useState([]);
   const [search, setSearch] = useState("");
+  const [seletedState, setSelectedState] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="stateWrapper">
@@ -17,8 +19,15 @@ function StateWise() {
         search={search}
         setStateData={setStateData}
       />
-
-      <Table stateData={stateData} />
+      <Table
+        stateData={stateData}
+        setSelectedState={setSelectedState}
+        dataName="stateName"
+        setModalOpen={setModalOpen}
+      />
+      <div className={`modalWrapper ${modalOpen ? "open" : ""}`}>
+        <Modal seletedState={seletedState} setModalOpen={setModalOpen} />
+      </div>
     </div>
   );
 }

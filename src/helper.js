@@ -46,13 +46,24 @@ const STATENAMES = {
   WB: "West Bengal",
 };
 
-export const TransformToArrayFromObject = (obj) => {
+export const TransformToStateArrayFromObject = (obj) => {
   return obj
     ? Object.keys(obj).map((stateCode, idx) => {
         return {
           ...obj[stateCode],
           stateName: STATENAMES[stateCode],
           id: idx,
+        };
+      })
+    : [];
+};
+
+export const TransformToDistrictArrayFromObject = (obj) => {
+  return obj
+    ? Object.keys(obj).map((district, idx) => {
+        return {
+          ...obj[district],
+          districtName: district,
         };
       })
     : [];

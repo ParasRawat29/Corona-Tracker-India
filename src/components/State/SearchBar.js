@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getApi, TransformToArrayFromObject } from "../../helper";
+import { getApi, TransformToStateArrayFromObject } from "../../helper";
 
 function SearchBar({ setSearch, setApiData, apiData, search, setStateData }) {
   const searchChange = (e) => {
@@ -9,8 +9,8 @@ function SearchBar({ setSearch, setApiData, apiData, search, setStateData }) {
 
   useEffect(() => {
     getApi().then((response) => {
-      setApiData(TransformToArrayFromObject(response));
-      setStateData(TransformToArrayFromObject(response));
+      setApiData(TransformToStateArrayFromObject(response));
+      setStateData(TransformToStateArrayFromObject(response));
     });
   }, []);
 

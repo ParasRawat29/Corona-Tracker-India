@@ -6,9 +6,8 @@
 
 table {
   width: 90%;
-  margin: auto;
+  margin: 1rem auto;
   border-collapse: separate;
-  /* background-color: blanchedalmond; */
 }
 table > tbody > tr {
   transition: all 0.4s ease-in;
@@ -27,7 +26,6 @@ table > thead > tr > th,
 table > tbody > tr > td {
   padding: 10px;
   text-align: left;
-  /* background-color: brown; */
 }
 table > tbody > tr:nth-of-type(odd) {
   background-color: rgb(240, 239, 239);
@@ -57,14 +55,26 @@ input {
   width: 90%;
   padding: 6px 10px;
   transition: width 0.3s ease-in-out;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(8, 8, 8);
   overflow: hidden;
 }
 button {
   font-size: 1.3rem;
   padding: 3px;
-  background: white;
+  background: inherit;
   outline: none;
   border: none;
   cursor: pointer;
+}
+.modalWrapper {
+  display: none;
+  min-height: 100vh;
+}
+.modalWrapper.open {
+  display: block;
+  width: 100vw;
+  height: max-content;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
 }
