@@ -37,7 +37,12 @@ function Table({ stateData, setSelectedState, dataName, setModalOpen }) {
     setSelectedState(state);
     setModalOpen(true);
   };
-  return (
+
+  return stateData.length < 1 ? (
+    <div style={{ textAlign: "center", padding: "30px", fontSize: "2rem" }}>
+      Wrong State Name 😑
+    </div>
+  ) : (
     <table>
       <thead>
         <tr className="headingRow">

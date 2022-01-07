@@ -31,7 +31,7 @@ function SearchBar({ setSearch, setApiData, apiData, search, setStateData }) {
           type="text"
           value={search}
           onChange={(e) => searchChange(e)}
-          placeholder="Search"
+          placeholder="Search state / union territory"
         />
         <button
           className="clearBtn"

@@ -10,6 +10,7 @@ function App() {
       </header>
       <main>
         <Total />
+
         <StateWise />
         <div className="footer">
           <h5>

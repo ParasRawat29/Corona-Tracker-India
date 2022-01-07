@@ -19,6 +19,10 @@ function StateWise() {
         search={search}
         setStateData={setStateData}
       />
+      <p style={{ textAlign: "center", color: "green" }}>
+        <i class="fas fa-info-circle"></i> Note : Click on the state to view
+        data of its districts
+      </p>
       <Table
         stateData={stateData}
         setSelectedState={setSelectedState}
