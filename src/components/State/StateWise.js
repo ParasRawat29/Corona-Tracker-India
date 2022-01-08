@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getApi, TransformToStateArrayFromObject } from "../../helper.js";
+import Loading from "../Loading.js";
 import Modal from "../Modal.js";
 import SearchBar from "./SearchBar";
 import "./stateWise.css";
@@ -9,8 +11,20 @@ function StateWise() {
   const [search, setSearch] = useState("");
   const [seletedState, setSelectedState] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  return (
+  useEffect(() => {
+    getApi("https://data.covid19india.org/v4/min/data.min.json").then(
+      (response) => {
+        setApiData(TransformToStateArrayFromObject(response));
+        setStateData(TransformToStateArrayFromObject(response));
+        setIsLoading(false);
+      }
+    );
+  }, []);
+  return isLoading ? (
+    <Loading message="Fetching Data" />
+  ) : (
     <div className="stateWrapper">
       <SearchBar
         setSearch={setSearch}
@@ -18,6 +32,7 @@ function StateWise() {
         apiData={apiData}
         search={search}
         setStateData={setStateData}
+        setIsLoading={setIsLoading}
       />
       <p style={{ textAlign: "center", color: "green" }}>
         <i class="fas fa-info-circle"></i> Note : Click on the state to view

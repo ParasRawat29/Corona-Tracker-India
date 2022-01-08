@@ -1,6 +1,5 @@
 export const getApi = async (url) => {
   const res = await fetch(url).then((result) => result.json());
-
   return res;
 };
 

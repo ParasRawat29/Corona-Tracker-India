@@ -1,0 +1,12 @@
+.loadingWrapper {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loadingWrapper img {
+  width: 100px;
+  height: 100px;
+}

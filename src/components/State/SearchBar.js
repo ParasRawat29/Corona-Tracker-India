@@ -8,15 +8,6 @@ function SearchBar({ setSearch, setApiData, apiData, search, setStateData }) {
   };
 
   useEffect(() => {
-    getApi("https://data.covid19india.org/v4/min/data.min.json").then(
-      (response) => {
-        setApiData(TransformToStateArrayFromObject(response));
-        setStateData(TransformToStateArrayFromObject(response));
-      }
-    );
-  }, []);
-
-  useEffect(() => {
     const newData = apiData.filter((state) =>
       state.stateName.toLowerCase().includes(search.toLowerCase())
     );

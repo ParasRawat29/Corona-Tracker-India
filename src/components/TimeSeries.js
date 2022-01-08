@@ -12,6 +12,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { getApi, TransformToDatesArrayFromObject } from "../helper";
 import "./timeSeries.css";
+import Loading from "./Loading";
 
 ChartJS.register(
   CategoryScale,
@@ -55,6 +56,7 @@ function TimeSeries({ seletedState }) {
   const [apiData, setApiData] = useState([]);
   const [timeSeriesData, setTimeSeriesData] = useState([]);
   const [startDate, setStartDate] = useState(undefined);
+  const [isLoading, setisLoading] = useState(false);
 
   const options = {
     responsive: true,
@@ -102,6 +104,7 @@ function TimeSeries({ seletedState }) {
   }, [startDate]);
 
   useEffect(() => {
+    setisLoading(true);
     getApi("https://data.covid19india.org/v4/min/timeseries.min.json").then(
       (data) => {
         setTimeSeriesData(
@@ -110,6 +113,7 @@ function TimeSeries({ seletedState }) {
         setApiData(
           TransformToDatesArrayFromObject(data[seletedState.stateCode].dates)
         );
+        setisLoading(false);
       }
     );
 
@@ -122,7 +126,9 @@ function TimeSeries({ seletedState }) {
     setStartDate(apiData.length > 0 ? apiData[0].date : undefined);
   }, [apiData]);
 
-  return (
+  return isLoading ? (
+    <Loading message="Creating Chart ..." />
+  ) : (
     <div className="timeSeriesWrapper">
       <div className="filterDate">
         <label htmlFor="startDate">Start Date : </label>

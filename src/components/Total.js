@@ -5,6 +5,7 @@ import recovered from "../images/recovered.png";
 import vaccinated from "../images/vaccinated.png";
 import death from "../images/death.png";
 import { getApi } from "../helper";
+import Loading from "./Loading";
 function Total() {
   const [isLoading, setIsLoading] = useState(true);
   const [total, setTotal] = useState({
@@ -16,14 +17,14 @@ function Total() {
   });
 
   useEffect(() => {
-    getApi("https://data.covid19india.org/v4/min/data.min.json").then((res) =>
-      setTotal(res.TT.total)
-    );
-    setIsLoading(false);
+    getApi("https://data.covid19india.org/v4/min/data.min.json").then((res) => {
+      setTotal(res.TT.total);
+      setIsLoading(false);
+    });
   }, []);
 
   return isLoading ? (
-    <h1>Loading</h1>
+    <Loading message="Fetching Data" />
   ) : (
     <div className="totalWrapper">
       <div className="confirmedWrapper">
