@@ -1,7 +1,8 @@
 import React from "react";
-import { TransformToDistrictArrayFromObject } from "../../helper";
+import { TransformToDistrictArrayFromObject } from "../helper";
 import "./Modal.css";
-import Table from "./Table";
+import Table from "./State/Table";
+import TimeSeries from "./TimeSeries";
 function Modal({ seletedState, setModalOpen }) {
   return (
     <>
@@ -11,6 +12,7 @@ function Modal({ seletedState, setModalOpen }) {
         <button className="closeBtn" onClick={() => setModalOpen(false)}>
           <i class="far fa-times-circle"></i>
         </button>
+        <TimeSeries seletedState={seletedState} />
         <Table
           stateData={TransformToDistrictArrayFromObject(seletedState.districts)}
           dataName="districtName"

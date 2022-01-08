@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Covid -19 Tracker | India</h1>
+        <h1>COVID 19 Dashboard , India</h1>
       </header>
       <main>
         <Total />

@@ -1,0 +1,15 @@
+.timeSeriesWrapper {
+  width: 80%;
+  min-width: 600px;
+  margin: auto;
+}
+
+.timeSeriesWrapper label {
+  font: 1em sans-serif;
+}
+.timeSeriesWrapper input {
+  border: 2px solid rgb(192, 136, 136);
+  padding: 0;
+  margin-top: 0.6rem;
+  background-color: inherit;
+}

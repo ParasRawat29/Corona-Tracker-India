@@ -8,10 +8,12 @@ function SearchBar({ setSearch, setApiData, apiData, search, setStateData }) {
   };
 
   useEffect(() => {
-    getApi().then((response) => {
-      setApiData(TransformToStateArrayFromObject(response));
-      setStateData(TransformToStateArrayFromObject(response));
-    });
+    getApi("https://data.covid19india.org/v4/min/data.min.json").then(
+      (response) => {
+        setApiData(TransformToStateArrayFromObject(response));
+        setStateData(TransformToStateArrayFromObject(response));
+      }
+    );
   }, []);
 
   useEffect(() => {

@@ -1,12 +1,10 @@
-const baseUrl = "https://data.covid19india.org/v4/min/data.min.json";
-
-export const getApi = async () => {
-  const res = await fetch(baseUrl).then((result) => result.json());
+export const getApi = async (url) => {
+  const res = await fetch(url).then((result) => result.json());
 
   return res;
 };
 
-const STATENAMES = {
+export const STATENAMES = {
   AN: "Andaman & Nicobar",
   AP: "Andhra Pradesh",
   AR: "Arunachal Pradesh",
@@ -48,10 +46,11 @@ const STATENAMES = {
 
 export const TransformToStateArrayFromObject = (obj) => {
   return obj
-    ? Object.keys(obj).map((stateCode, idx) => {
+    ? Object.keys(obj).map((item, idx) => {
         return {
-          ...obj[stateCode],
-          stateName: STATENAMES[stateCode],
+          ...obj[item],
+          stateName: STATENAMES[item],
+          stateCode: item,
           id: idx,
         };
       })
@@ -60,10 +59,21 @@ export const TransformToStateArrayFromObject = (obj) => {
 
 export const TransformToDistrictArrayFromObject = (obj) => {
   return obj
-    ? Object.keys(obj).map((district, idx) => {
+    ? Object.keys(obj).map((item) => {
         return {
-          ...obj[district],
-          districtName: district,
+          ...obj[item],
+          districtName: item,
+        };
+      })
+    : [];
+};
+
+export const TransformToDatesArrayFromObject = (obj) => {
+  return obj
+    ? Object.keys(obj).map((item) => {
+        return {
+          ...obj[item],
+          date: item,
         };
       })
     : [];

@@ -16,7 +16,9 @@ function Total() {
   });
 
   useEffect(() => {
-    getApi().then((res) => setTotal(res.TT.total));
+    getApi("https://data.covid19india.org/v4/min/data.min.json").then((res) =>
+      setTotal(res.TT.total)
+    );
     setIsLoading(false);
   }, []);
 

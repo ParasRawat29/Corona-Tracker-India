@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Table({ stateData, setSelectedState, dataName, setModalOpen }) {
-  console.log(stateData);
   const [currentSort, setCurrentSort] = useState("default");
   const [sortOn, setSortOn] = useState("");
 
