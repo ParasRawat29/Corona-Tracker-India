@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getApi, TransformToStateArrayFromObject } from "../../helper.js";
-import Loading from "../Loading.js";
-import Modal from "../Modal.js";
+import Loading from "../Loading/Loading";
+import Modal from "../Modal/Modal";
 import SearchBar from "./SearchBar";
 import "./stateWise.css";
-import Table from "./Table";
+import Table from "../Table/Table";
 function StateWise() {
   const [apiData, setApiData] = useState([]);
   const [stateData, setStateData] = useState([]);

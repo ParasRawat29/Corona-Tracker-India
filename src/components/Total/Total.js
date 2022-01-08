@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Total.css";
-import coronavirus from "../images/coronavirus.png";
-import recovered from "../images/recovered.png";
-import vaccinated from "../images/vaccinated.png";
-import death from "../images/death.png";
-import { getApi } from "../helper";
-import Loading from "./Loading";
+import coronavirus from "../../images/coronavirus.png";
+import recovered from "../../images/recovered.png";
+import vaccinated from "../../images/vaccinated.png";
+import death from "../../images/death.png";
+import { getApi } from "../../helper";
+import Loading from "../Loading/Loading";
 function Total() {
   const [isLoading, setIsLoading] = useState(true);
   const [total, setTotal] = useState({

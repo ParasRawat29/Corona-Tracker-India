@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { getApi, TransformToStateArrayFromObject } from "../../helper";
 
 function SearchBar({ setSearch, setApiData, apiData, search, setStateData }) {
   const searchChange = (e) => {

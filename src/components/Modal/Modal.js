@@ -1,8 +1,8 @@
 import React from "react";
-import { TransformToDistrictArrayFromObject } from "../helper";
+import { TransformToDistrictArrayFromObject } from "../../helper";
 import "./Modal.css";
-import Table from "./State/Table";
-import TimeSeries from "./TimeSeries";
+import Table from "../Table/Table";
+import TimeSeries from "../Timeseries/TimeSeries";
 function Modal({ seletedState, setModalOpen }) {
   return (
     <>

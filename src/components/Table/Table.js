@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function Table({ stateData, setSelectedState, dataName, setModalOpen }) {
   const [currentSort, setCurrentSort] = useState("default");

@@ -10,9 +10,9 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { getApi, TransformToDatesArrayFromObject } from "../helper";
+import { getApi, TransformToDatesArrayFromObject } from "../../helper";
 import "./timeSeries.css";
-import Loading from "./Loading";
+import Loading from "../Loading/Loading";
 
 ChartJS.register(
   CategoryScale,

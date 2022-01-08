@@ -1,6 +1,6 @@
 import "./App.css";
 import StateWise from "./components/State/StateWise";
-import Total from "./components/Total";
+import Total from "./components/Total/Total";
 
 function App() {
   return (
