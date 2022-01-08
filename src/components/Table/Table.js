@@ -42,130 +42,140 @@ function Table({ stateData, setSelectedState, dataName, setModalOpen }) {
       Wrong State Name 😑
     </div>
   ) : (
-    <table>
-      <thead>
-        <tr className="headingRow">
-          <th className="stateNameHeading">
-            {dataName === "stateName" ? "State | Union Territory" : "Districts"}
-          </th>
-          <th className="confirmedHeading" style={{ color: "#c44938" }}>
-            Confirmed
-            <button
-              onClick={() => {
-                sortTable();
-                setSortOn("confirmed");
+    <div className="tableWrapper" style={{ overflowX: "auto" }}>
+      <table>
+        <thead>
+          <tr className="headingRow">
+            <th className="stateNameHeading">
+              {dataName === "stateName"
+                ? "State | Union Territory"
+                : "Districts"}
+            </th>
+            <th className="confirmedHeading" style={{ color: "#c44938" }}>
+              Confirmed
+              <button
+                onClick={() => {
+                  sortTable();
+                  setSortOn("confirmed");
+                }}
+              >
+                <i
+                  className={`fas fa-${
+                    sortOn === "confirmed"
+                      ? sortTypes[currentSort].class
+                      : "sort"
+                  }`}
+                ></i>
+              </button>
+            </th>
+            <th
+              className="recoveredHeading"
+              style={{
+                color: "#3ba53d",
               }}
             >
-              <i
-                className={`fas fa-${
-                  sortOn === "confirmed" ? sortTypes[currentSort].class : "sort"
-                }`}
-              ></i>
-            </button>
-          </th>
-          <th
-            className="recoveredHeading"
-            style={{
-              color: "#3ba53d",
-            }}
-          >
-            Recovered
-            <button
-              onClick={() => {
-                sortTable();
-                setSortOn("recovered");
-              }}
-            >
-              <i
-                className={`fas fa-${
-                  sortOn === "recovered" ? sortTypes[currentSort].class : "sort"
-                }`}
-              ></i>
-            </button>
-          </th>
-          <th className="deathsHeading">
-            Deaths
-            <button
-              onClick={() => {
-                sortTable();
-                setSortOn("deceased");
-              }}
-            >
-              <i
-                className={`fas fa-${
-                  sortOn === "deceased" ? sortTypes[currentSort].class : "sort"
-                }`}
-              ></i>
-            </button>
-          </th>
+              Recovered
+              <button
+                onClick={() => {
+                  sortTable();
+                  setSortOn("recovered");
+                }}
+              >
+                <i
+                  className={`fas fa-${
+                    sortOn === "recovered"
+                      ? sortTypes[currentSort].class
+                      : "sort"
+                  }`}
+                ></i>
+              </button>
+            </th>
+            <th className="deathsHeading">
+              Deaths
+              <button
+                onClick={() => {
+                  sortTable();
+                  setSortOn("deceased");
+                }}
+              >
+                <i
+                  className={`fas fa-${
+                    sortOn === "deceased"
+                      ? sortTypes[currentSort].class
+                      : "sort"
+                  }`}
+                ></i>
+              </button>
+            </th>
 
-          <th className="vaccinatedHeading" style={{ color: "#6c3d99" }}>
-            Vaccinated 1
-            <button
-              onClick={() => {
-                sortTable();
-                setSortOn("vaccinated1");
-              }}
-            >
-              <i
-                className={`fas fa-${
-                  sortOn === "vaccinated1"
-                    ? sortTypes[currentSort].class
-                    : "sort"
-                }`}
-              ></i>
-            </button>
-          </th>
-          <th className="vaccinatedHeading" style={{ color: "#6c3d99" }}>
-            Vaccinated 2
-            <button
-              onClick={() => {
-                sortTable();
-                setSortOn("vaccinated2");
-              }}
-            >
-              <i
-                className={`fas fa-${
-                  sortOn === "vaccinated2"
-                    ? sortTypes[currentSort].class
-                    : "sort"
-                }`}
-              ></i>
-            </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {[...stateData].sort(sortTypes[currentSort].fun).map((item) => {
-          if (item.stateName !== "Total") {
-            return (
-              <tr key={item.id} onClick={() => handleRowClick(item)}>
-                <td className="stateName">{item[dataName]}</td>
-                <td className="stateWiseConfirmed">
-                  {item.total.confirmed ? item.total.confirmed : "-"}
-                </td>
-                <td className="stateWiseRecovered">
-                  {" "}
-                  {item.total.recovered ? item.total.recovered : "-"}
-                </td>
-                <td className="stateWiseDeceased">
-                  {" "}
-                  {item.total.deceased ? item.total.deceased : "-"}
-                </td>
-                <td className="statevaccinated1">
-                  {" "}
-                  {item.total.vaccinated1 ? item.total.vaccinated1 : "-"}
-                </td>
-                <td className="statevaccinated2">
-                  {" "}
-                  {item.total.vaccinated2 ? item.total.vaccinated2 : "-"}
-                </td>
-              </tr>
-            );
-          }
-        })}
-      </tbody>
-    </table>
+            <th className="vaccinatedHeading" style={{ color: "#6c3d99" }}>
+              Vaccinated 1
+              <button
+                onClick={() => {
+                  sortTable();
+                  setSortOn("vaccinated1");
+                }}
+              >
+                <i
+                  className={`fas fa-${
+                    sortOn === "vaccinated1"
+                      ? sortTypes[currentSort].class
+                      : "sort"
+                  }`}
+                ></i>
+              </button>
+            </th>
+            <th className="vaccinatedHeading" style={{ color: "#6c3d99" }}>
+              Vaccinated 2
+              <button
+                onClick={() => {
+                  sortTable();
+                  setSortOn("vaccinated2");
+                }}
+              >
+                <i
+                  className={`fas fa-${
+                    sortOn === "vaccinated2"
+                      ? sortTypes[currentSort].class
+                      : "sort"
+                  }`}
+                ></i>
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {[...stateData].sort(sortTypes[currentSort].fun).map((item) => {
+            if (item.stateName !== "Total") {
+              return (
+                <tr key={item.id} onClick={() => handleRowClick(item)}>
+                  <td className="stateName">{item[dataName]}</td>
+                  <td className="stateWiseConfirmed">
+                    {item.total.confirmed ? item.total.confirmed : "-"}
+                  </td>
+                  <td className="stateWiseRecovered">
+                    {" "}
+                    {item.total.recovered ? item.total.recovered : "-"}
+                  </td>
+                  <td className="stateWiseDeceased">
+                    {" "}
+                    {item.total.deceased ? item.total.deceased : "-"}
+                  </td>
+                  <td className="statevaccinated1">
+                    {" "}
+                    {item.total.vaccinated1 ? item.total.vaccinated1 : "-"}
+                  </td>
+                  <td className="statevaccinated2">
+                    {" "}
+                    {item.total.vaccinated2 ? item.total.vaccinated2 : "-"}
+                  </td>
+                </tr>
+              );
+            }
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

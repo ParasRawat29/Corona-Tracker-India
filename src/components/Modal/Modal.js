@@ -8,7 +8,7 @@ function Modal({ seletedState, setModalOpen }) {
     <>
       <div className="overlay" onClick={() => setModalOpen(false)}></div>
       <div className="content">
-        <h1>{seletedState.stateName}</h1>
+        <h1 className="stateName">{seletedState.stateName}</h1>
         <button className="closeBtn" onClick={() => setModalOpen(false)}>
           <i class="far fa-times-circle"></i>
         </button>

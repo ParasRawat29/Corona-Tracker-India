@@ -45,6 +45,7 @@ table > tbody > tr:hover {
 }
 .inputGroup {
   width: 300px;
+  min-width: 260px;
 }
 input {
   font-size: 1.1rem;

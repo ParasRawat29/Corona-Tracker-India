@@ -1,6 +1,5 @@
 .timeSeriesWrapper {
   width: 80%;
-  min-width: 600px;
   margin: auto;
 }
 
@@ -12,4 +11,18 @@
   padding: 0;
   margin-top: 0.6rem;
   background-color: inherit;
+}
+
+.timeSeriesWrapper canvas {
+  width: 100%;
+  min-height: 500px;
+  max-height: 500px;
+  min-width: 250px;
+}
+
+@media screen and (max-width: 450px) {
+  .filterDate {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
 }

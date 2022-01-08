@@ -25,7 +25,7 @@ function StateWise() {
   return isLoading ? (
     <Loading message="Fetching Data" />
   ) : (
-    <div className="stateWrapper">
+    <div className="stateWrapper" style={{ overflowX: "auto" }}>
       <SearchBar
         setSearch={setSearch}
         setApiData={setApiData}
