@@ -1,7 +1,7 @@
 import "./App.css";
 import StateWise from "./components/State/StateWise";
 import Total from "./components/Total/Total";
-
+import Map from "./components/map/Map";
 function App() {
   return (
     <div className="App">
@@ -10,8 +10,10 @@ function App() {
       </header>
       <main>
         <Total />
-
-        <StateWise />
+        <main className="mainContent">
+          <StateWise />
+          <Map />
+        </main>
         <div className="footer">
           <h5>
             Created By <span>Paras Rawat</span>

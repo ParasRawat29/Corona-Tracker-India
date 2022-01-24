@@ -5,7 +5,7 @@
 }
 
 table {
-  width: 90%;
+  width: 95%;
   margin: 1rem auto;
   border-collapse: separate;
 }
@@ -78,4 +78,5 @@ button {
   position: fixed;
   overflow: hidden;
   top: 0;
+  z-index: 1;
 }

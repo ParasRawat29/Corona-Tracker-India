@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.mapWrapper {
+  width: 95%;
+  max-width: 750px;
+  height: 700px;
+  margin: 2rem auto;
+}
+
+.mapWrapper .leaflet-container {
+  height: 100%;
+  z-index: 0;
+}
+.MapButtonsWrapper {
+  text-align: center;
+}
+.MapButtonsWrapper button {
+  background-color: #201e21;
+  color: snow;
+  padding: 10px 15px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.MapButtonsWrapper .active {
+  background-color: snow;
+  color: #201e21;
+  border: 2px solid #201e21;
+  border-bottom: none;
+}
