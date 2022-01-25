@@ -11,7 +11,7 @@ import {
 function Map() {
   const [data, setData] = useState([]);
   const [casesType, setCasesType] = useState("confirmed");
-  console.log(data);
+
   useEffect(() => {
     getApi("https://data.covid19india.org/v4/min/data.min.json").then((res) => {
       setData(TransformToStateArrayFromObject(res));
@@ -63,11 +63,6 @@ function Map() {
         />
 
         {data.map((state) => {
-          console.log(
-            Math.sqrt(state.total[casesType]) /
-              CASES_TYPE_COLOR[casesType].multiplier
-          );
-
           if (state.latitude && state.longitude)
             return (
               <CircleMarker

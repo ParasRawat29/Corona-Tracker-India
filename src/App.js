@@ -1,7 +1,14 @@
+import React, { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import "./App.css";
-import StateWise from "./components/State/StateWise";
+import ErrorFallback from "./components/ErrorFallback";
+import Loading from "./components/Loading/Loading";
+// import StateWise from "./components/State/StateWise";
 import Total from "./components/Total/Total";
-import Map from "./components/map/Map";
+// import Map from "./components/map/Map";
+const Map = React.lazy(() => import("./components/map/Map"));
+const StateWise = React.lazy(() => import("./components/State/StateWise"));
+
 function App() {
   return (
     <div className="App">
@@ -10,10 +17,15 @@ function App() {
       </header>
       <main>
         <Total />
-        <main className="mainContent">
-          <StateWise />
-          <Map />
-        </main>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Suspense fallback={<Loading message="Fetching Data" />}>
+            <main className="mainContent">
+              <StateWise />
+              <Map />
+            </main>
+          </Suspense>
+        </ErrorBoundary>
+
         <div className="footer">
           <h5>
             Created By <span>Paras Rawat</span>
