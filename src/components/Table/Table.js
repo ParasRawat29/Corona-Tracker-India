@@ -51,7 +51,7 @@ function Table({ stateData, setSelectedState, dataName, setModalOpen }) {
                 ? "State | Union Territory"
                 : "Districts"}
             </th>
-            <th className="confirmedHeading" style={{ color: "#c44938" }}>
+            <th className="confirmedHeading">
               Confirmed
               <button
                 onClick={() => {
@@ -68,12 +68,7 @@ function Table({ stateData, setSelectedState, dataName, setModalOpen }) {
                 ></i>
               </button>
             </th>
-            <th
-              className="recoveredHeading"
-              style={{
-                color: "#3ba53d",
-              }}
-            >
+            <th className="recoveredHeading">
               Recovered
               <button
                 onClick={() => {
@@ -108,7 +103,7 @@ function Table({ stateData, setSelectedState, dataName, setModalOpen }) {
               </button>
             </th>
 
-            <th className="vaccinatedHeading" style={{ color: "#6c3d99" }}>
+            <th className="vaccinatedHeading">
               Vaccinated 1
               <button
                 onClick={() => {
@@ -125,7 +120,7 @@ function Table({ stateData, setSelectedState, dataName, setModalOpen }) {
                 ></i>
               </button>
             </th>
-            <th className="vaccinatedHeading" style={{ color: "#6c3d99" }}>
+            <th className="vaccinatedHeading">
               Vaccinated 2
               <button
                 onClick={() => {
@@ -153,11 +148,17 @@ function Table({ stateData, setSelectedState, dataName, setModalOpen }) {
                   <td className="stateWiseConfirmed">
                     {item.total.confirmed ? item.total.confirmed : "-"}
                   </td>
-                  <td className="stateWiseRecovered">
+                  <td
+                    className="stateWiseRecovered"
+                    style={{ color: "#1ab073" }}
+                  >
                     {" "}
                     {item.total.recovered ? item.total.recovered : "-"}
                   </td>
-                  <td className="stateWiseDeceased">
+                  <td
+                    className="stateWiseDeceased"
+                    style={{ color: "#ea5254" }}
+                  >
                     {" "}
                     {item.total.deceased ? item.total.deceased : "-"}
                   </td>

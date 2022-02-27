@@ -37,8 +37,8 @@ const LABELS = [
   },
   {
     title: "deceased",
-    borderColor: "rgb(21, 24, 19)",
-    backgroundColor: "rgba(21, 24, 19,0.5)",
+    borderColor: "#a6a8ab",
+    backgroundColor: "#a6a8ab",
   },
   {
     title: "vaccinated1",
@@ -61,8 +61,27 @@ function TimeSeries({ seletedState }) {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
+
+    scales: {
+      x: {
+        ticks: {
+          color: "#b0b6bd",
+        },
+      },
+      y: {
+        ticks: {
+          color: "#b0b6bd",
+        },
+      },
+    },
     plugins: {
       legend: {
+        labels: {
+          boxWidth: 40,
+          boxHeight: 15,
+          color: "#b0b6bd",
+          font: { size: 15 },
+        },
         position: "top",
       },
       title: {

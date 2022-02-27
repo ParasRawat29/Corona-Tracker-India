@@ -27,39 +27,39 @@ function Total() {
     <Loading message="Fetching Data" />
   ) : (
     <div className="totalWrapper">
-      <div className="confirmedWrapper">
+      <div className="confirmedWrapper totalsubWrapper">
         <h3 className="title">Confirmed</h3>
         <img src={coronavirus} alt="" className="dataImg" />
         <h4 className="value" style={{ color: "#c44938" }}>
           {total.confirmed}
         </h4>
       </div>
-      <div className="recoveredWrapper">
+      <div className="recoveredWrapper totalsubWrapper">
         <h3 className="title">Recovered</h3>
         <img src={recovered} alt="" className="dataImg" />
         <h4 className="value" style={{ color: "#3ba53d" }}>
           {total.recovered}
         </h4>
       </div>
-      <div className="deathsWrapper">
+      <div className="deathsWrapper totalsubWrapper">
         <h3 className="title">Deaths</h3>
         <img src={death} alt="" className="dataImg" />
         <h4 className="value">{total.deceased}</h4>
       </div>
-      <div className="vaccinatedWrapper">
+      <div className="vaccinatedWrapper totalsubWrapper">
         <h3 className="title">Vaccinated</h3>
         <div className="innerVaccinated">
           <div className="vaccinated1Wrapper">
             <h3 className="title">1st Dose</h3>
             <img src={vaccinated} alt="" className="dataImg" />
-            <h4 className="value" style={{ color: "#6c3d99" }}>
+            <h4 className="value" style={{ color: "rgb(193,159,225)" }}>
               {total.vaccinated1}
             </h4>
           </div>
           <div className="vaccinated2Wrapper">
             <h3 className="title"> 2nd Dose</h3>
             <img src={vaccinated} alt="" className="dataImg" />
-            <h4 className="value" style={{ color: "#6c3d99" }}>
+            <h4 className="value" style={{ color: "rgb(193,159,225)" }}>
               {total.vaccinated2}
             </h4>
           </div>

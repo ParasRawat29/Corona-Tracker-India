@@ -39,7 +39,7 @@ function StateWise() {
         setStateData={setStateData}
         setIsLoading={setIsLoading}
       />
-      <p style={{ textAlign: "center", color: "green" }}>
+      <p style={{ textAlign: "center", color: "#1ab073" }}>
         <i class="fas fa-info-circle"></i> Note : Click on the state to view
         data of its districts
       </p>

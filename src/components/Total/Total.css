@@ -12,6 +12,10 @@
   flex-wrap: wrap;
   /* background-color: bisque; */
 }
+.totalsubWrapper {
+  background-color: #0e223f;
+  border-radius: 10px;
+}
 .confirmedWrapper,
 .recoveredWrapper,
 .deathsWrapper,
@@ -20,9 +24,8 @@
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  max-width: 300px;
+  max-width: 280px;
   align-items: center;
-  border: 1px solid rgb(61, 60, 60);
   margin: 5px;
   padding: 10px;
 }
@@ -50,15 +53,15 @@
 .title {
   font-size: 1.2rem;
   margin-bottom: 1.3rem;
-  text-decoration: underline;
-  color: rgb(27, 27, 27);
+  /* text-decoration: underline; */
+  color: #b0b6bd;
   margin-bottom: auto;
 }
 .value {
   margin-top: 1rem;
-  font-size: 1.7rem;
-  color: rgb(54, 53, 53);
+  font-size: 1.3rem;
+  color: #eceef0;
 }
 .vaccinatedWrapper .value {
-  font-size: 1.4rem;
+  font-size: 1.3em;
 }

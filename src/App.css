@@ -7,9 +7,12 @@
   min-height: 100vh;
   position: relative;
   height: max-content;
+  background-color: #0a1a32;
 }
+
 header {
   text-align: center;
+  color: #f5f8fb;
 }
 header h1 {
   display: inline-block;
